@@ -9,12 +9,20 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import th.co.krungthaiaxa.api.taxcert.model.Greeting;
+import th.co.krungthaiaxa.api.taxcert.utils.JsonUtil;
+
+import static org.springframework.http.HttpStatus.OK;
 
 /**
  * Created by wuttichai on 7/30/2016 AD.
  */
 @RestController
 public class TaxcertController {
+    //TODO get request from ui web
+
+
+
+
     private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 
@@ -32,10 +40,9 @@ public class TaxcertController {
 
 
     @RequestMapping(method= RequestMethod.GET,value="/testing",produces = MediaType.APPLICATION_JSON_VALUE)
-    public @ResponseBody String testing() {
-        return "Hello World";
+    public ResponseEntity<byte[]> testing() {
+        return new ResponseEntity<>(JsonUtil.getJson(new Greeting(1,"Hello")), OK);
     }
-
 
 
     @RequestMapping(method= RequestMethod.POST,value="/runCycle")
