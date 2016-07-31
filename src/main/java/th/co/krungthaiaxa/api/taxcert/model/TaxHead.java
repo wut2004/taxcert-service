@@ -1,7 +1,7 @@
 package th.co.krungthaiaxa.api.taxcert.model;
 
 /**
- * Created by ptom_nmay on 7/31/2016 AD.
+ * Created by Wuttichai on 7/31/2016 AD.
  */
 public class TaxHead {
     private String wpno;
